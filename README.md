@@ -62,6 +62,41 @@ use $**fetch** without having to resort to custom $**fetch** wrappers.
 
 > Nuxt port is set in package.json scripts via **cross-env**
 
+## Updates
+
+Research on two Laravel & Nuxt boilerplate:
+- https://github.com/fumeapp/laranuxt
+- https://github.com/k2so-dev/laravel-nuxt
+
+#### 1. Setup Laravel
+
+Start with `laravel-nuxt`
+
+Add `https://github.com/mollie/laravel-mollie`
+
+Create migrations:
+```
+php artisan make:migration create_products_table
+php artisan make:migration create_orders_table
+php artisan make:migration create_categories_table
+```
+- Run `php artisan migrate`
+- Create seeders: `php artisan make:seeder ProductsSeeder` plus categories
+  and orders
+- Seed data `php artisan db:seed`
+
+#### 2. API Development in Laravel
+
+- Create a Product model: `php artisan make:model Product`
+- Create a Order model: `php artisan make:model Order`
+- Create a Category model: `php artisan make:model Category`
+
+(It's quicker to use `php artisan make:model Product -mcr` at once)
+
+- `php artisan make:request StoreProductRequest`
+
+### 3. Frontend in Nuxt v.3
+
 ## Usage
 
 ### Nuxt $fetch
@@ -149,16 +184,6 @@ The following middleware is supported:
 ### Laravel Middleware
 
 All built-in middleware from Laravel + middleware based on roles [**Spatie Laravel Permissions Middleware**](https://spatie.be/docs/laravel-permission/v6/basic-usage/middleware)
-
-## Examples
-
-### Route list
-
-![routes](https://github.com/k2so-dev/laravel-nuxt/assets/15279423/39bb3021-a4d1-4472-8320-5a397809904d)
-
-### Demo
-
-https://github.com/k2so-dev/laravel-nuxt/assets/15279423/9b134491-1444-4323-a7a3-d87833dcdc67
 
 ## Links
 * [Nuxt 3](https://nuxt.com/)
