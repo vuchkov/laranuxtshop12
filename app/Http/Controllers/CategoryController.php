@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,11 @@ class CategoryController extends Controller
 {
     public function index(Request $request): JsonResponse
     {
-        return response()->json($request);
+        //return Category::all();
+        //return CategoryResource::collection(Category::all());
+        $categories = Category::all();
+
+        return response()->json($categories);
     }
 
     public function show(Category $category): JsonResponse

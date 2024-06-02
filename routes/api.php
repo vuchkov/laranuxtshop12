@@ -38,11 +38,10 @@ Route::prefix('api/v1')->group(function () {
 
 $actions = ['store', 'index', 'show', 'update', 'destroy'];
 Route::prefix('api/v1')->group(function() {
+    Route::get('/products', [ProductController::class, 'index'])->name('index');
     Route::get('{category}/products', [ProductController::class, 'index'])->name('category/products.index');
     Route::get('/categories', [CategoryController::class, 'index'])->name('index');
 //    Route::get('/categories', CategoryController::class);
-//    Route::get('/products', [ProductController::class, 'index'])->name('index');
-//    Route::get('/categories', [CategoryController::class, 'index'])->name('index');
     Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
     //    Route::patch('/products/{product}/complete', \App\Http\Controllers\Api\V1\CompleteProductController::class);
