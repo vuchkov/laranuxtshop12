@@ -17,6 +17,14 @@ class CategoryController extends Controller
 
     public function show(Category $category): JsonResponse
     {
-        return response()->json($category);
+//        return response()->json($category);
+        return response()->json($this->listByCategory(1));
+    }
+
+    // Controller method
+    public function listByCategory(int $categoryId)
+    {
+        $products = Category::findOrFail($categoryId)->products;
+        return response()->json($products);
     }
 }

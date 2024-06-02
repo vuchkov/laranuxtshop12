@@ -53,6 +53,8 @@ class ProductController extends Controller
      */
     public function show(Product $product): JsonResponse
     {
+        // Eager load the category relationship to avoid N+1 queries
+        $product->load('category');
         return response()->json($product, '200');
     }
 
