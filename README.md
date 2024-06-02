@@ -67,6 +67,11 @@ Research on two Laravel & Nuxt boilerplate:
 - https://github.com/fumeapp/laranuxt
 - https://github.com/k2so-dev/laravel-nuxt
 
+Laravel API: 
+- http://127.0.0.1:8000/
+- http://127.0.0.1:8000/api/v1/
+- http://127.0.0.1:8000/api/v1/1/products (products of category 1)
+
 ### 1. Setup Laravel
 
 Start with `laravel-nuxt`
