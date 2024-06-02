@@ -75,7 +75,7 @@ Add `https://github.com/mollie/laravel-mollie` by composer
 
 ### 2. API Development in Laravel
 
-#### Create DB migrations:
+#### 2.1 Create DB migrations:
 ```
 php artisan make:migration create_products_table
 php artisan make:migration create_orders_table
@@ -87,7 +87,7 @@ php artisan make:migration create_categories_table
 - Seed data `php artisan db:seed` or 
 `php artisan db:seed --class=ProductsTableSeeder`
 
-#### Create models
+#### 2.2 Create models
 - Create a Product model: `php artisan make:model Product`
 - Create a Order model: `php artisan make:model Order`
 - Create a Category model: `php artisan make:model Category`
@@ -96,11 +96,25 @@ php artisan make:migration create_categories_table
 
 - Create all the models.
 
-#### Create controllers
+Implement in Order model `reference` field logic as method:
+``` 
+public function getReferenceNumberAttribute()
+    {
+        // Get today's date components
+        $year = now()->format('Y');
+        $month = now()->format('m');
+        $day = now()->format('d');
+
+        // Generate the reference number string
+        return "F{$year}{$month}{$day}" . str_pad($this->id + 500, 5, '0', STR_PAD_LEFT);
+    }
+```
+
+#### 2.3 Create controllers
 
 - `php artisan make:controller`
 
-#### Create resources:
+#### 2.4 Create resources:
 
 - `php artisan make:resource`
 
