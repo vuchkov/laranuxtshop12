@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('reference')->unique();
             $table->string('email');
+            $table->string('products');
             $table->decimal('total_price', 8, 2);
             $table->boolean('paid')->default(false);
             $table->timestamps();

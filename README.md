@@ -84,8 +84,17 @@ php artisan make:migration create_categories_table
 - Run `php artisan migrate`
 - Create seeders: `php artisan make:seeder ProductsSeeder` plus categories
   and orders
-- Seed data `php artisan db:seed` or 
-`php artisan db:seed --class=ProductsTableSeeder`
+- Seed data `php artisan db:seed` and 
+``` 
+php artisan db:seed --class=ProductSeeder
+php artisan db:seed --class=OrderSeeder
+php artisan db:seed --class=CategorySeeder
+```
+
+To refresh DB:
+``` 
+php artisan migrate:fresh --seed
+```
 
 #### 2.2 Create models
 - Create a Product model: `php artisan make:model Product`

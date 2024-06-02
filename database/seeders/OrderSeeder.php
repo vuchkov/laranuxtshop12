@@ -13,6 +13,17 @@ class OrderSeeder extends Seeder
      */
     public function run(): void
     {
-        Order::factory(10)->create();
+//        Order::factory(10)->create();
+        $order = Order::create([
+            'reference' => '',
+            'products' => '1|1|1',
+            'email' => 'user@user.com',
+            'total_price' => 19.99,
+            'paid' => false,
+        ]);
+        /*Order::update([
+            'id' => $order->id,
+            'reference' => $order->getReferenceNumberAttribute(),
+        ]);*/
     }
 }

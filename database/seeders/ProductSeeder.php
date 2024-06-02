@@ -21,7 +21,7 @@ class ProductSeeder extends Seeder
             'sku' => 'ABC123',
             'name' => 'Product 1',
             'description' => 'This is a description for product 1.',
-            'unit_price' => 19.99,
+            'price' => 19.99,
             'category_id' => 1, // If using categories
         ]);
     }
