@@ -53,8 +53,7 @@ use $**fetch** without having to resort to custom $**fetch** wrappers.
 5. `php artisan db:seed`
 6. `php artisan octane:install`
 7. `php artisan octane:start --watch --port=8000 --host=127.0.0.1`
-8. `yarn install`
-9. `yarn dev`
+8. Use yarn: `yarn install && yarn dev` or NPM: `npm install && npm run dev`
 
 ## Upgrade
 1. `npx nuxi upgrade`
@@ -62,19 +61,21 @@ use $**fetch** without having to resort to custom $**fetch** wrappers.
 
 > Nuxt port is set in package.json scripts via **cross-env**
 
-## Updates
+## Updates & Usage
 
 Research on two Laravel & Nuxt boilerplate:
 - https://github.com/fumeapp/laranuxt
 - https://github.com/k2so-dev/laravel-nuxt
 
-#### 1. Setup Laravel
+### 1. Setup Laravel
 
 Start with `laravel-nuxt`
 
 Add `https://github.com/mollie/laravel-mollie` by composer
 
-Create migrations:
+### 2. API Development in Laravel
+
+#### Create DB migrations:
 ```
 php artisan make:migration create_products_table
 php artisan make:migration create_orders_table
@@ -83,21 +84,92 @@ php artisan make:migration create_categories_table
 - Run `php artisan migrate`
 - Create seeders: `php artisan make:seeder ProductsSeeder` plus categories
   and orders
-- Seed data `php artisan db:seed`
+- Seed data `php artisan db:seed` or 
+`php artisan db:seed --class=ProductsTableSeeder`
 
-#### 2. API Development in Laravel
-
+#### Create models
 - Create a Product model: `php artisan make:model Product`
 - Create a Order model: `php artisan make:model Order`
 - Create a Category model: `php artisan make:model Category`
 
 (It's quicker to use `php artisan make:model Product -a` at once)
 
-- Update all the models.
+- Create all the models.
+
+#### Create controllers
+
+- `php artisan make:controller`
+
+#### Create resources:
+
+- `php artisan make:resource`
 
 ### 3. Frontend in Nuxt v.3
 
-## Usage
+- Install axios: `yarn add axios`
+
+#### 3.1 Products
+- Create product service: `services/ProductService.ts`
+- Create `pages/products.ts` (for tests)
+- Create `pages/products/_id.ts`
+
+#### 3.2 Cart 
+- Create `composables/cart.ts`
+- Explanation:
+
+We define an interface `CartItem` to represent an item in the cart, 
+including the product and its quantity.
+The `useCart` function provides methods for:
+`getCart`: Retrieves the cart items from local storage (parsed as `CartItem[]`).
+`addToCart`: Adds a product to the cart, handling existing items and 
+updating quantities.
+
+#### 3.3. Using `useCart` in Components:
+- Import useCart in your components:
+```
+<script setup>
+import { useCart } from '~/composables/cart';
+</script>
+```
+
+- Access methods:
+```
+<template>
+  <button @click="addToCart(product, 1)">Add to Cart</button>
+</template>
+
+<script setup>
+const { addToCart } = useCart();
+
+const addToCart = (product, quantity) => {
+  // Use addToCart method from composable
+};
+</script>
+```
+
+#### 3.4 Navigation Bar Cart Indicator:
+Access Cart Items:
+```
+<template>
+  <div>
+    <NuxtLink to="/cart">Cart ({{ cartItems.length }})</NuxtLink>
+  </div>
+</template>
+
+<script setup>
+import { useCart } from '~/composables/cart';
+
+const { getCart } = useCart();
+
+const cartItems = computed(() => getCart());
+</script>
+```
+Explanation:
+- We access the getCart method from useCart to get cart items within a computed property. 
+- We display the number of items in the cart within the navigation bar button.
+
+#### 3.5 Cart page
+Create `pages/cart.ts`
 
 ### Nuxt $fetch
 

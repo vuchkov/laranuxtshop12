@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Http\Resources\TaskResource;
 use App\Models\Product;
+use App\Models\Task;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -15,6 +17,9 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        //return Product::all();
+        //return ProductResource::collection(Product::all());
+
         $perPage = $request->query('per_page', 10);
         $query = Product::query();
         $categoryId = $request->query('category_id');

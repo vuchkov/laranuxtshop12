@@ -37,20 +37,20 @@ Route::prefix('api/v1')->group(function () {
 });
 
 $actions = ['store', 'index', 'show', 'update', 'destroy'];
-
-Route::prefix('/v1')->group(function() {
+Route::prefix('api/v1')->group(function() {
     Route::apiResource('/products', ProductController::class);
-    Route::patch('/products/{product}/complete', \App\Http\Controllers\Api\V1\CompleteTaskController::class);
-});
+    Route::get('categories', [CategoryController::class, 'index'])->name('index');
+    Route::get('products', [ProductController::class, 'index'])->name('index');
 
-//Route::get('categories', [CategoryController::class, 'index'])->name('index');
-//Route::resource('products', ProductController::class)->only($actions);
-//Route::apiResource('categories', [CategoryController::class, 'index'])->name('index');
-//Route::get('{category}/products', [ProductController::class, 'index'])->name('category/products.index');
-//Route::get('products', [ProductController::class, 'index'])->name('products.index');
-//Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-//Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-//Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-//Route::patch('/products/{product}', [ProductController::class, 'update'])->name('products.update');
-//Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+    //    Route::patch('/products/{product}/complete', \App\Http\Controllers\Api\V1\CompleteProductController::class);
+    //Route::resource('products', ProductController::class)->only($actions);
+    //Route::apiResource('categories', [CategoryController::class, 'index'])->name('index');
+    //Route::get('{category}/products', [ProductController::class, 'index'])->name('category/products.index');
+    //Route::get('products', [ProductController::class, 'index'])->name('products.index');
+    //Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+    //Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+    //Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+    //Route::patch('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+    //Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+});
 
