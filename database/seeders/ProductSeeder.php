@@ -14,15 +14,15 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         // Option 1: Using Factory (recommended)
-        Product::factory(10)->create();
+//        Product::factory(10)->create();
 
         // Option 2: Direct insertion
-        /*Product::create([
+        Product::create([
             'sku' => 'ABC123',
             'name' => 'Product 1',
             'description' => 'This is a description for product 1.',
             'unit_price' => 19.99,
             'category_id' => 1, // If using categories
-        ]);*/
+        ]);
     }
 }

@@ -72,7 +72,7 @@ Research on two Laravel & Nuxt boilerplate:
 
 Start with `laravel-nuxt`
 
-Add `https://github.com/mollie/laravel-mollie`
+Add `https://github.com/mollie/laravel-mollie` by composer
 
 Create migrations:
 ```
@@ -91,9 +91,9 @@ php artisan make:migration create_categories_table
 - Create a Order model: `php artisan make:model Order`
 - Create a Category model: `php artisan make:model Category`
 
-(It's quicker to use `php artisan make:model Product -mcr` at once)
+(It's quicker to use `php artisan make:model Product -a` at once)
 
-- `php artisan make:request StoreProductRequest`
+- Update all the models.
 
 ### 3. Frontend in Nuxt v.3
 

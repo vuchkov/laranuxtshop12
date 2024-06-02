@@ -46,7 +46,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product): \Illuminate\Http\JsonResponse
+    public function show(Product $product): JsonResponse
     {
         return response()->json($product);
     }

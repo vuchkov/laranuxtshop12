@@ -44,5 +44,11 @@ class DatabaseSeeder extends Seeder
         $user->email_verified_at = now();
         $user->save(['timestamps' => false]);
         $user->assignRole($role2);
+
+        $this->call([
+            CategorySeeder::class,
+            ProductSeeder::class,
+            OrderSeeder::class,
+        ]);
     }
 }
