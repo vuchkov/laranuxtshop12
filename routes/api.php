@@ -36,20 +36,21 @@ Route::prefix('api/v1')->group(function () {
     });
 });
 
-$actions = ['store', 'index', 'show', 'update', 'destroy'];
 Route::prefix('api/v1')->group(function() {
     Route::get('/products', [ProductController::class, 'index'])->name('index');
+    //Route::get('products', [ProductController::class, 'index'])->name('products.index');
+
     Route::get('{category}/products', [ProductController::class, 'index'])->name('category/products.index');
     Route::get('/categories', [CategoryController::class, 'index'])->name('index');
-//    Route::get('/categories', CategoryController::class);
-    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
-    //    Route::patch('/products/{product}/complete', \App\Http\Controllers\Api\V1\CompleteProductController::class);
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+    Route::patch('/products/{product}', ProductController::class, 'update')->name('update');
+
+    //$actions = ['store', 'index', 'show', 'update', 'destroy'];
     //Route::resource('products', ProductController::class)->only($actions);
     //Route::apiResource('categories', [CategoryController::class, 'index'])->name('index');
-    //Route::get('products', [ProductController::class, 'index'])->name('products.index');
     //Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-    //
+
     //Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     //Route::patch('/products/{product}', [ProductController::class, 'update'])->name('products.update');
     //Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
