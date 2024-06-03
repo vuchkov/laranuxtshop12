@@ -55,9 +55,10 @@ use $**fetch** without having to resort to custom $**fetch** wrappers.
 7. `php artisan octane:start --watch --port=8000 --host=127.0.0.1`
 8. `php artisan migrate:fresh --seed`
 9. Use yarn: `yarn install && yarn dev` or NPM: `npm install && npm run dev`
-10. Check the API: 
-11. Categories: http://127.0.0.1:8000/api/v1/categories
-12. Products in Category 1: http://127.0.0.1:8000/api/v1/1/products
+
+Check the API: 
+10. Categories: http://127.0.0.1:8000/api/v1/categories
+11. Products in Category 1: http://127.0.0.1:8000/api/v1/1/products
 
 ## Upgrade
 1. `npx nuxi upgrade`
