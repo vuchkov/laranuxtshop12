@@ -34,9 +34,7 @@ Route::prefix('api/v1')->group(function () {
             Route::post('upload', [UploadController::class, 'image'])->name('upload.image');
         });
     });
-});
 
-Route::prefix('api/v1')->group(function() {
     Route::get('/products', [ProductController::class, 'index'])->name('index');
     //Route::get('products', [ProductController::class, 'index'])->name('products.index');
 
@@ -44,7 +42,7 @@ Route::prefix('api/v1')->group(function() {
     Route::get('/categories', [CategoryController::class, 'index'])->name('index');
 
     Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-    Route::patch('/products/{product}', ProductController::class, 'update')->name('update');
+//    Route::patch('/products/{product}', ProductController::class, 'update')->name('update');
 
     //$actions = ['store', 'index', 'show', 'update', 'destroy'];
     //Route::resource('products', ProductController::class)->only($actions);
