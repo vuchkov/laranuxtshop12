@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreOrderRequest;
+use App\Http\Requests\OrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Order;
 use App\Models\Product;
@@ -29,7 +29,7 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOrderRequest $request): JsonResponse
+    public function store(OrderRequest $request): JsonResponse
     {
         // Validate request data (email is likely required)
         $validated = $request->validate([

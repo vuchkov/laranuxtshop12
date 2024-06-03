@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use App\Http\Requests\ProductRequest;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
@@ -40,7 +39,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductRequest $request)
+    public function store(ProductRequest $request)
     {
         $product = Product::create($request->validated());
         // ... further logic to handle product creation
@@ -68,7 +67,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, Product $product): JsonResponse
+    public function update(ProductRequest $request, Product $product): JsonResponse
     {
         $product->update($request->validated());
         // ... further logic to handle product update
@@ -78,7 +77,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product): JsonResponse
     {
         $product->delete();
         return response()->json(null, 204);

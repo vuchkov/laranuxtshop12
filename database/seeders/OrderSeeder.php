@@ -16,7 +16,7 @@ class OrderSeeder extends Seeder
 //        Order::factory(10)->create();
         $order = Order::create([
             'reference' => '',
-            'products' => '1|1|1',
+            'products' => '1|1|1|2',
             'email' => 'user@user.com',
             'total_price' => 19.99,
             'paid' => false,
