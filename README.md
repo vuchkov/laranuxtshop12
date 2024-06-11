@@ -1,6 +1,6 @@
 # Assignment
 
-Please read the [ASSIGNMENT.md](https://github.com/vuchkov/laranuxtshop/blob/master/ASSIGNMENT.md) and [ROADMAP.md](https://github.com/vuchkov/laranuxtshop/blob/master/ROADMAP.md) for more info.
+Please read the [ASSIGNMENT.md](https://github.com/vuchkov/laranuxtshop12/blob/master/ASSIGNMENT.md) and [ROADMAP.md](https://github.com/vuchkov/laranuxtshop12/blob/master/ROADMAP.md) for more info.
 
 [//]: # (- The goal of the project is to create a template for development on Laravel and Nuxt with maximum API performance, ready-made authorization methods, image uploading with optimization and ready-made user roles.)
 
